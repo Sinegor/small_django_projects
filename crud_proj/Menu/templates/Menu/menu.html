@@ -1,0 +1,20 @@
+
+{%load menu_tag%}
+
+{%for menu_inst, value in menu_data.items%}
+    
+    {%with cur_m=menu_inst%}
+    {%for item in value.current_menu%}
+        {%if forloop.first%} <ul class ="{% if item.parents == None %}topmenu{% else %}submenu{% endif %}">{%endif%}
+            <li class="menu-item-{{ item.id }}"> 
+                <a href='{{item.link}}' class='{% if item.active %}active {% endif %}'>
+                {{item.name}}
+                </a>
+                {%build_menu menu_name item.id cur_m%}
+            </li>
+        {%if forloop.last%}</ul>{%endif%}
+    {%endfor%}
+    {% endwith %}
+
+    {%endfor%}    
+

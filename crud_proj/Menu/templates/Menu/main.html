@@ -1,0 +1,9 @@
+{% extends 'Menu/basic.html' %}
+{% load menu_tag %}
+{%block title%}
+{{title}}
+{%endblock%}
+{%block content%}
+{{ block.super }}
+<nav>{%build_menu type_menu%}</nav>
+{%endblock%}

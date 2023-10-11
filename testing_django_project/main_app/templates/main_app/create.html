@@ -1,0 +1,23 @@
+
+{% extends "main_app/basic_html.html" %}
+
+{%block title%}
+{{title}}
+{%endblock%}
+{%block content%}
+    <h2>Создание нового задания</h2>
+    <form method="post"> 
+        {% csrf_token %}
+        {{form.title}} <br>
+        {{form.task}}  <br>
+        <button type='submit' > Добавить</button>
+
+
+        
+    </form>
+    
+    
+
+
+{%endblock%}
+   
